@@ -1,8 +1,8 @@
 # Tourio
 
-This project represents a sample solution for Recap Project 6.
+This project represents the starter for Recap Project 6.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+**Tourio** is the friend of all travelers: it displays sights you want to visit and lets you edit them.
 
 ## Getting Started
 
@@ -14,27 +14,32 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the app.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Tasks
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Read Data
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Set up a database; use the [`lib/db.json` file](lib/db.json) to insert sample data.
+- In `pages/api/index.js`, replace the `places` variable imported from `lib/db.js` with a `GET` request from your database.
+- Do the same in `pages/api/[id]/index.js` for the details page.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Create Form
 
-## Learn More
+- In `pages/create.js`, write the `addPlace` function to start a `POST` request.
+- Write the `POST` API route in `pages/api/places/index.js`.
+- Submitting the form should redirect the user to the homepage `/`.
 
-To learn more about Next.js, take a look at the following resources:
+### Update Entry
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- In `pages/places/[id]/edit.js`, write the `editPlace` function to start a `PATCH` request.
+- Write the `PATCH` API route in `pages/api/[id]/index.js`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Delete Entry
 
-## Deploy on Vercel
+- In `pages/places/[id].index.js`, write the `deletePlace` function to start a `DELETE` request.
+- Write the `DELETE` API route in `pages/api/places/[id]/index.js`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy to Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Deploy your app to Vercel and make sure the deployment can access the cloud database with the help of environment variables.
